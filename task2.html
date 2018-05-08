@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>No.2 - 初步接触 CSS 2D 变形</title>
+    <style>
+    .container {
+        margin-top: 50px;
+    }
+
+    .box {
+        width: 50px;
+        height: 50px;
+        background: #f7f6f6;
+        border: 1px solid #ebebeb;
+        text-align: center;
+        line-height: 50px;
+        float: left;
+        margin-right: 50px; 
+    }
+
+    .box1 {
+        transform: skewX(30deg);
+    }
+
+    .box2 {
+        transform: scaleX(0.5);
+    }
+
+    .box3 {
+        transform: rotate(45deg);
+    }
+
+    .box4 {
+        transform: translate(10px, 20px);
+    }
+
+    .box5 {
+        transform: skewX(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">box0</div>
+        <div class="box box1">box1</div>
+        <div class="box box2">box2</div>
+        <div class="box box3">box3</div>
+        <div class="box box4">box4</div>
+        <div class="box box5">box5</div>
+    </div>
+</body>
+
+</html>
