@@ -1,65 +1,69 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>course1</title>
-	<style>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>No.1 - 制作一个简单的菜单动画效果</title>
+    <style>
+    .box {
+        margin: 0 auto;
+        text-align: center;
+    }
 
-		.nav .title{
-			display: inline-block;
-			margin: 0;
-			color: grey;
-		}
+    .title {
+        display: inline-block;
+        position: relative;
+        color: grey;
+    }
 
-		.nav .line{
-			display: block ;
-			background-color: #3465f0;
-			width: 64px;
-			height: 3px;
-		}
+    .title::after {
+        transition: all 0.3s;
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 64px;
+        height: 3px;
+        background: #3565EE;
+        transform: scale(0);
+    }
 
-		@keyframes stretch{
-			0% {transform:scaleX(1); }
-			50% {transform:scaleX(0);}
-			100% {transform:scaleX(1);}
-		}
+	.active{
+		color: #3565EE;
+	}
+    
+    .active::after {
+        transform: scaleX(1);
+    }
 
-		@keyframes color-change{
-			0% {color: grey;}
-			50% {color: #3465f0;}
-			100% {color: grey;}
-		}
-
-		.btn{
-			margin-top: 15px;
-		}
-		
-	</style>
+    .btn {
+        margin-top: 15px;
+        border-radius: 5px;
+        border:1px solid grey;
+        background: white;
+   		outline: none;
+    }
+    </style>
 </head>
+
 <body>
-	<div class='nav'>
-		<p id='title' class='title'>前端学院</p>
-		<span id='line' class='line'></span>
-	</div>
+    <div class="box">
+    	<div>
+    		<p id="title" class="title">前端学院</p>
+    	</div>
+        
+        <button class="btn" id="change_btn">
+            切换样式
+        </button>
+    </div>
+    <script>
+    var btn = document.getElementById('change_btn');
+    var title = document.getElementById('title');
 
-	<button class='btn' id='change_btn'>
-		切换样式
-	</button>
-
-	<script>
-		var btn = document.getElementById('change_btn');
-		var title = document.getElementById('title');
-		var line = document.getElementById('line');
-		
-		btn.onclick = function(){
-			title.style.animation = 'color-change 1s';
-			line.style.animation = 'stretch 1s';
-			
-			setTimeout(function(){
-				title.style.animation = '';
-				line.style.animation = '';	
-			},1001);
-		};
-	</script>	
+    btn.onclick = function() {
+        title.classList.toggle('active');
+    };
+    </script>
 </body>
+
 </html>
